@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build: .
+    container_name: api_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  
+  db:
+    build: .
+    container_name: db_container
+    volumes:
+      - ./data:/data
+
+volumes:
+  db_data:
